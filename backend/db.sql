@@ -1,0 +1,10 @@
+CREATE DATABASE oss_server;
+
+USE oss_server;
+
+CREATE TABLE comment (
+        USER_ID INTEGER NOT NULL,
+        COMMENT VARCHAR(100) NOT NULL,
+        TIME TIMESTAMP NOT NULL,
+        PRIMARY KEY (USER_ID)
+)
