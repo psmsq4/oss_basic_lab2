@@ -1,0 +1,21 @@
+<head><h1>{{ project.project_name }}</h1></head>
+<hr></hr>
+<main>
+	{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+	<p>{{ project.project_desc }}</p>
+</main>
+<hr></hr>
+<footer>
+	<p>Please evalutate my project :)</p>
+	<form action="{% url 'project:vote' project.id %}" method="post">
+	{% for choice in project.choice_set.all %}
+		{% csrf_token %}
+		<input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+		<label for="choice{{ forloop.counter }}">{{ choice.eval_text }}</label>
+		<br>
+	{% endfor %}
+	
+	<input type="submit" value="Evaluate">
+	</form>
+</footer>
+
