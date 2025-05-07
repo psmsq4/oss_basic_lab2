@@ -1,0 +1,11 @@
+{% if all_portfolio_list %}
+	<h1> SSH Portfolio </h1>
+	<hr></hr>
+	<ul>
+		{% for project in all_portfolio_list %}
+			<li><a href="{% url 'project:detail' project.id %}">{{ project.project_name }}</a></li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p> I have not done any project :( </p>
+{% endif %}

@@ -1,0 +1,10 @@
+<h1>{{ project.project_name }} score</h1>
+<hr>
+<ul>
+{% for choice in project.choice_set.all %}
+	<li>{{ choice.eval_text }}: {{ choice.eval_agg }}</li>
+{% endfor %}
+</ul>
+<p>total_scores: {{ scoreAgg.total_scores }}</p>
+<p>total_votes: {{ scoreAgg.total_votes }}</p>
+<p>average_scores: {{ scoreAgg.average_scores }}</p>
